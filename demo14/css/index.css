@@ -5,6 +5,10 @@
     position: relative;
 }
 .fileListItem img{width:30px;height:30px;}
+.fileListItem .operate{display:none;}
+.fileListItem.hover .operate{display:block;position:absolute;left:200px;top:16px;}
+.fileListItem .iconMore{display:none;}
+
 
 .fileListIcon{
     float: left;
@@ -28,14 +32,16 @@
     line-height: 17px;
     margin-left: 10px;
     margin-right: 10px;
-    z-index: 1;
     left: 0px;
 }
 .fileListIcon img{width:174px;height:174px;}
 
 .fileListIcon .operate{display:none;}
-.fileListItem .operate{display:none;}
-.fileListItem.hover .operate{display:block;position:absolute;left:200px;top:16px;}
 .fileListIcon .iconMore{display:none;}
-.fileListItem .iconMore{display:none;}
 .fileListIcon.hover .iconMore{display:block;position:absolute;left:130px;top:10px;}
+.fileListIcon .item-checkbox{position: absolute;display: none;}
+.fileListIcon:hover .item-checkbox{position: absolute;display: block;}
+.fileListIcon:hover{border: 1px solid #359aff; }
+.fileListIcon.item-selected{border: 1px solid #359aff;}
+.fileListIcon.item-selected .item-checkbox{display: block;}
+

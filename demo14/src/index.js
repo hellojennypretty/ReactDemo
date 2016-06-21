@@ -20,8 +20,15 @@ $("#fileList").delegate(".filelist","mouseup",function(e){
             alert("下载");
         }else if(tar.hasClass('i-delete')){
             alert("删除");
+        }else if(tar.hasClass('item-checkbox')){
+            var index = $(e.currentTarget).index();
+            if(tar[0].checked){
+                data[index].is_selected = false;
+            }else{
+                data[index].is_selected = true;
+            }
+            window.fileList.update();
         }
-
     }
 });
 $("#fileList").delegate(".filelist","mouseenter",function(e){

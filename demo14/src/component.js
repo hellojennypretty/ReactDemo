@@ -7,8 +7,11 @@ var IconItem = React.createClass({
         if(this.props.data.thumb_exist==true){
             src = "img/1.jpg";
         }
-        return (<div className={this.props.model=="list"?"fileListItem filelist":"fileListIcon filelist"}>
-                    <input type="checkbox"/>
+        var listClass = "filelist ";
+        listClass += (this.props.model=="list"?"fileListItem ":"fileListIcon ");
+        listClass += (this.props.data.is_selected==true?"item-selected":"")
+        return (<div className={listClass}>
+                    <input type="checkbox" className="item-checkbox"/>
                     <img loaded="true" src={src}/>
                     <a className="display-name" title={this.props.data.path}>{this.props.data.path}</a>
                     <span className="iconMore">
