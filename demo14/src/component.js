@@ -3,9 +3,9 @@
  */
 var IconItem = React.createClass({
     render:function(){
-        var src = "wrong.png";
+        var src = "img/wrong.png";
         if(this.props.data.thumb_exist==true){
-            src = "1.jpg";
+            src = "img/1.jpg";
         }
         return (<div className={this.props.model=="list"?"fileListItem filelist":"fileListIcon filelist"}>
                     <input type="checkbox"/>
