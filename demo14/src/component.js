@@ -46,6 +46,33 @@ var ContextMenu = React.createClass({
     }
 });
 
+var Header = React.createClass({
+    render:function(){
+        var currentDatas = [];
+        $.each(this.props.data, function(idx, item){
+            if(item.is_selected){
+                currentDatas.push(item);
+            }
+        });
+        if(currentDatas.length==0){
+            return <div>图片</div>
+        }else if(currentDatas.length==1){
+            return <div>
+                <span id="" className="preview"><i className="i-preview" title="预览">预览</i></span>
+                <span id="" className="link"><i className="i-sendlink" title="分享">分享</i></span>
+                <span id="" className="download"><i className="i-download" title="下载">下载</i></span>
+                <span id="" className="delete"><i className="i-delete" title="删除">删除</i></span>
+            </div>
+        }else{
+            return <div>
+                <span id="" className="link"><i className="i-sendlink" title="分享">分享</i></span>
+                <span id="" className="delete"><i className="i-delete" title="删除">删除</i></span>
+                </div>
+
+        }
+    }
+});
+
 var RepoList = React.createClass({
     getInitialState: function() {
         return {
@@ -74,7 +101,7 @@ var RepoList = React.createClass({
             });
             return (
                 <main>
-                    <h1>图片</h1>
+                    <Header data={this.state.data}/>
                     <div id="list">{repoList}</div>
                     <ContextMenu contextMenuClass={this.state.contextMenuClass}/>
                 </main>
