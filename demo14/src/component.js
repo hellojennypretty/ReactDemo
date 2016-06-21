@@ -49,11 +49,13 @@ var ContextMenu = React.createClass({
 var RepoList = React.createClass({
     getInitialState: function() {
         return {
-            data: null
+            data: null,
+            model:this.props.model,
+            contextMenuClass:contextMenuClass
         };
     },
     componentDidMount() {
-        this.setState({data: this.props.promise,model:this.props.model,contextMenuClass:contextMenuClass});
+        this.setState({data: this.props.data});
     },
     update:function(){
         this.setState({data: data,model:model,contextMenuClass:contextMenuClass});
@@ -81,5 +83,5 @@ var RepoList = React.createClass({
     }
 });
 
-window.fileList = ReactDOM.render(<RepoList promise={data} model={model}/>,
+window.fileList = ReactDOM.render(<RepoList data={data} model={model}/>,
     document.getElementById('fileList'));
